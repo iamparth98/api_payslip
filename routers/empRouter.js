@@ -1,22 +1,21 @@
 import Router from "express";
 import { Register, Login, Logout } from "../controllers/authController.js";
 import {
-  addEmployee,
-  deleteEmployee,
-  getEmployee,
-  getEmployees,
-  updateEmployee,
+  AddEmployee,
+  DeleteEmployee,
+  GetEmployee,
+  GetEmployees,
+  UpdateEmployee,
 } from "../controllers/empController.js";
 const router = Router();
 
-router.get("/", getEmployees);
+router.get("/employees", GetEmployees);
+router.get("/employee/:id", GetEmployee);
 
-router.get("/:id", getEmployee);
+router.post("/employee", AddEmployee);
 
-router.post("/", addEmployee);
+router.delete("/employee/:id", DeleteEmployee);
 
-router.delete("/:id", deleteEmployee);
-
-router.put("/:id", updateEmployee);
+router.put("/employee/:id", UpdateEmployee);
 
 export default router;

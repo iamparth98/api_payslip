@@ -1,15 +1,24 @@
-export const getEmployees = (req, res) => {
-  res.end("Employees");
+import { client } from "../db/db.js";
+
+export const GetEmployees = (req, res) => {
+  const q = "select * from employee";
+  client.query(q, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.json(err);
+    }
+    return res.status(200).json(data);
+  });
 };
-export const getEmployee = (req, res) => {
+export const GetEmployee = (req, res) => {
   res.end("Logout");
 };
-export const addEmployee = (req, res) => {
+export const AddEmployee = (req, res) => {
   res.end("Logout");
 };
-export const updateEmployee = (req, res) => {
+export const UpdateEmployee = (req, res) => {
   res.end("Logout");
 };
-export const deleteEmployee = (req, res) => {
+export const DeleteEmployee = (req, res) => {
   res.end("Logout");
 };

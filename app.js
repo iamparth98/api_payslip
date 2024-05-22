@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import authRoute from "./routers/authRoute.js";
+import empRouter from "./routers/empRouter.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -14,6 +15,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
+app.use("/api/data", empRouter);
 
 app.listen(8800, () => {
   console.log("app is running at port 8800");

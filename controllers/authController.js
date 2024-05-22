@@ -6,7 +6,7 @@ export const Login = (req, res) => {
   const q = "select * from admin where email = $1";
   client.query(q, [req.body.email], (err, data) => {
     if (err) {
-      console.error();
+      console.error(err);
       return res.json(err);
     }
     if (data.rows.length === 0) return res.json("user not found");
